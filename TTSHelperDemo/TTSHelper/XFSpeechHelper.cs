@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using TTSHelper.EnumType;
 using TTSHelper.Model;
 using TTSHelper.Tool;
 
@@ -30,16 +31,23 @@ namespace TTSHelper
             string AUE = string.Empty;
             switch (model.AueType)
             {
-                case EnumType.AueType.Raw:
-                    if (extension!="wav")
+                case AueType.Raw:
+                    if (extension!=".wav")
                     {
-                        result.ResultCode= ResultCode.
-                        result.Message=
+                        result.ResultCode = ResultCode.ParameterError;
+                        result.Message = AueType.Raw.GetDescription();
+                        return result;
                     }
                     AUE = "raw";
                     break;
-                case EnumType.AueType.Lame:
+                case AueType.Lame:
                     AUE = "lame";
+                    if (extension != ".mp3")
+                    {
+                        result.ResultCode = ResultCode.ParameterError;
+                        result.Message = AueType.Lame.GetDescription();
+                        return result;
+                    }
                     break;
                 default:
                     break;
