@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSHelperDemo", "TTSHelperDemo\TTSHelperDemo.csproj", "{86C07C73-FE51-4044-BF98-0591E75EC212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSHelper", "TTSHelper\TTSHelper.csproj", "{36522EBC-510A-46BC-A525-5219A72A100A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86C07C73-FE51-4044-BF98-0591E75EC212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C07C73-FE51-4044-BF98-0591E75EC212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C07C73-FE51-4044-BF98-0591E75EC212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C07C73-FE51-4044-BF98-0591E75EC212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36522EBC-510A-46BC-A525-5219A72A100A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36522EBC-510A-46BC-A525-5219A72A100A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36522EBC-510A-46BC-A525-5219A72A100A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36522EBC-510A-46BC-A525-5219A72A100A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1376128-6C4A-48AF-99A3-24B4A7F62619}
+	EndGlobalSection
+EndGlobal
