@@ -22,8 +22,29 @@ namespace TTSHelper
         {
             SpeechResult result = new SpeechResult();
             String url = "http://api.xfyun.cn/v1/service/v1/tts";
-            //String querys = "";
             String bodys;
+            //aue = raw, 音频文件保存类型为 wav
+            //aue = lame, 音频文件保存类型为 mp3
+            //获取文件拓展名
+            var extension = Path.GetExtension(model.FilePath);
+            string AUE = string.Empty;
+            switch (model.AueType)
+            {
+                case EnumType.AueType.Raw:
+                    if (extension!="wav")
+                    {
+                        result.ResultCode= ResultCode.
+                        result.Message=
+                    }
+                    AUE = "raw";
+                    break;
+                case EnumType.AueType.Lame:
+                    AUE = "lame";
+                    break;
+                default:
+                    break;
+            }
+            string param = "{\"aue\":\"" + AUE + "\",\"auf\":\"audio/L16;rate=16000\",\"voice_name\":\"xiaoyan\",\"engine_type\":\"intp65\"}";
             //对要合成语音的文字先用utf-8然后进行URL加密
             //原文本长度
             var contextLength = model.TextContext.Length;
@@ -32,7 +53,6 @@ namespace TTSHelper
             var encodeLength = Contexts.Length;
             var avg = encodeLength / (double)contextLength;//平均数
             var splitNum = 1000 / avg;//取字符串截取长度
-
             var val = model.TextContext.Length / splitNum;
             List<string> lst = new List<string>();
             var num = Math.Ceiling(decimal.Parse(val.ToString()));
@@ -45,10 +65,6 @@ namespace TTSHelper
                 byte[] textDatas = Encoding.UTF8.GetBytes(body);//对要合成语音的文字先用utf-8然后进行URL加密
                 var encodeContext = HttpUtility.UrlEncode(textDatas);
                 bodys = string.Format("text={0}", encodeContext);
-                //aue = raw, 音频文件保存类型为 wav
-                //aue = lame, 音频文件保存类型为 mp3
-                string AUE = "lame";
-                string param = "{\"aue\":\"" + AUE + "\",\"auf\":\"audio/L16;rate=16000\",\"voice_name\":\"xiaoyan\",\"engine_type\":\"intp65\"}";
                 //获取十位的时间戳
                 TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
                 string curTime = Convert.ToInt64(ts.TotalSeconds).ToString();
@@ -128,6 +144,8 @@ namespace TTSHelper
         /// </summary>
         [Description("成功")]
         success = 0,
+        [Description("文件类型参数错误，请检查文件后缀名是否和需要生成的文件匹配")]
+        ParameterError =-1,
         /// <summary>
         /// 没有权限
         /// </summary>

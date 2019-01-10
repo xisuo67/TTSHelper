@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TTSHelper.EnumType;
 
 namespace TTSHelper.Model
 {
@@ -27,5 +28,9 @@ namespace TTSHelper.Model
         /// 讯飞APIKey
         /// </summary>
         public string APIKey { get; set; }
+        /// <summary>
+        /// 语音类型
+        /// </summary>
+        public AueType AueType { get; set; }
     }
 }

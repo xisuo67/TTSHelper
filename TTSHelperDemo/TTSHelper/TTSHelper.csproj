@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\AueType.cs" />
+    <Compile Include="EnumType\AueType.cs" />
     <Compile Include="Model\XFPostModel.cs" />
     <Compile Include="SpeechResult.cs" />
     <Compile Include="Tool\EnumHelper.cs" />
